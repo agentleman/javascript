@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>悬浮窗</title>
+</head>
+<body>
+   <div class="square"></div>
+   <style type="text/css">
+      .square{
+      	width:250px;
+      	height: 250px;
+      	border:5px solid orange;
+      	background: red;
+      	position: absolute;
+      }
+   </style>	
+   <script type="text/javascript">
+   	   var square=document.querySelector(".square");
+   	   var cT=square.offsetHeight;
+       var cL=square.offsetWidth;
+       var cW=document.documentElement.clientWidth;
+       var cH=document.documentElement.clientHeight;
+       var maxW=cW-cL;
+       var maxH=cH-cT;
+       var speedX=10;
+       var speedY=10;
+       window.onresize=function(){
+      	maxW=cW-cL;
+        maxH=cH-cT;
+      	cW=document.documentElement.clientWidth;
+        cH=document.documentElement.clientHeight;
+        }
+       var t=setInterval(move,50);  
+       function move(){      	
+       	 var tops=square.offsetTop+speedY;
+       	 var lefts=square.offsetLeft+speedX;
+       	if (tops>=maxH) {
+       		tops=maxH;
+       		speedY=-speedY;
+       	}
+       	if (tops<=0){
+       		tops=0;
+       		speedY=-speedY;
+       	}
+       	if (lefts>=maxW) {
+       		lefts=maxW;
+       		speedX=-speedX;
+       	}
+       	if (lefts<=0){
+       		lefts=0;
+       		speedX=-speedX;
+       	}
+       	square.style.left=lefts+"px";
+       	square.style.top=tops+"px";
+       	square.style.background="rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")"
+      }   
+//添加事件
+function aa(){alert(1);}
+function bb(){alert(2);}
+square.onclick=function(){
+	aa();bb();
+}
+square.onclick=null;
+square.onmousedown=function(){
+	square.onmousemove=function(){
+		square.style.background="rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")";
+	}
+}
+square.onmousemove=function(){
+		square.style.background="rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")";
+	}
+square.onmouseup=function(){
+	square.onmousemove=null;
+}
+//获取有父元素的对象的left和top值的函数
+// function offset(obj){
+// 	var result={left:0,top:0};
+// 	var arr=[];
+// 	arr.push(obj);
+// 	var parent=parentNode;
+// 	while(parent.nodeName!=="BODY"){
+// 		if (getStyle(parent,"position")==="relative"||getStyle(parent,"position")==="absolute") {
+// 			arr.push(parent);
+// 		}
+// 		parent=parent.parentNode,
+// 	}
+
+// 	for (var i = 0; i < arr.length; i++) {
+// 		var left=arr[i].offsetLeft;
+// 		var borderLeft=getStyle(arr[i],"borderLeftWidth")?parseInt(getStyle(arr[i],"borderLeftWidth")):0
+// 		if (i===0) {
+// 			borderTop=0;
+// 		}
+
+// 		result.left+=(left+borderLeft);
+// 		result.top+=(top+borderTop);
+// 	}
+// 	return result;
+// }
+
+
+   </script>
+</body>
+</html>

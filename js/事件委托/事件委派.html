@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+    p,span{
+    	list-style: none;
+    }
+	.feeds{
+		width: 350px;
+		height: 400px;
+		right: 0;
+		top: 0;
+		left: 0;
+		bottom:0;
+		position:absolute;
+		margin :auto;
+		overflow-y:scroll; 
+		border:2px solid #ccc;
+		padding: 10px 10px;
+
+	}
+	.feeds .feed{
+		border:1px solid #ccc;
+		margin:10px  0;
+		padding: 10px 5px;
+	}
+	.tip{
+		border:1px solid #ccc;
+		margin-bottom: 5px;
+	}
+	.zan-active{
+		color: green;
+	}
+	.xzan{
+		background-color: none;
+	}
+	.yzan{
+		background-color: green;
+	}
+</style>
+<body>
+	<div class="feeds">
+	    <div class="tip">五条</div>
+		<div class="feed">
+			<span>zhangsan</span>
+			<p>haorizi </p>
+			<span class="zan">赞(123)</span>
+		</div>
+		<div class="feed">
+			<span>lisi</span>
+			<p>buhaorizi </p>
+			<span class="zan">赞(123000)</span>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+    
+	// var span=document.querySelectorAll('.feed .zan');
+	// for (var i = 0; i < span.length; i++) {
+	// 	span[i].onclick=(function(){
+	// 		var kaiguan=true;
+	// 		return function(){
+	// 			if (kaiguan) {
+	// 				var num=parseInt(this.innerHTML.slice(2).slice(0,-1))+1;
+	// 				this.innerHTML='取消赞('+ num +')';
+	// 				this.classList.add('yzan');
+	// 				kaiguan=false;
+	// 			}else{
+	// 				var num=parseInt( this.innerHTML.slice(4).slice(0,-1))-1;
+	// 				this.innerHTML='赞('+ num +')';
+	// 				this.classList.remove('yzan');
+	// 				kaiguan=true;			}
+	// 			}
+	// 		})();
+	// 	}
+
+		var shujv=[{name:'zhangsan',neirong:'今天要高兴',zan:'赞(20)'},
+		   {name:'lisi',neirong:'今天要高兴',zan:'赞(21)'},
+		   {name:'lisi',neirong:'今天要高兴',zan:'赞(22)'}];
+		var tips=document.querySelector('.tip')
+
+		tips.onclick=function(){
+			for (var i = 0; i < 5; i++) {
+				var feeds=document.querySelector('.feeds')		
+				var data=shujv[i];
+				var el=document.createElement('div');
+				el.classList.add('feed');
+				el.innerHTML='<span>'+data.name+'</span><p>'+data.neirong+'</p><span class="zan">'+data.zan+'</span>'
+				feeds.insertBefore(el,feeds.secondElementChild);
+			}
+		}
+  var feeds=document.querySelector('.feeds')	
+  feeds.onclick=function(e){
+  	var el=e.target;
+  	var span=document.querySelectorAll('.feed .zan');
+  	for (var i = 0; i < span.length; i++) {
+  		span[i].onclick=(function(){
+  			var kaiguan=true;
+  			return function(){
+  				if (kaiguan) {
+  					var num=parseInt(this.innerHTML.slice(2).slice(0,-1))+1;
+  					this.innerHTML='取消赞('+ num +')';
+  					this.classList.add('yzan');
+  					kaiguan=false;
+  				}else{
+  					var num=parseInt( this.innerHTML.slice(4).slice(0,-1))-1;
+  					this.innerHTML='赞('+ num +')';
+  					this.classList.remove('yzan');
+  					kaiguan=true;			}
+  				}
+  			})();
+  		}
+
+  	}
+  	fn=function=(){
+  		      
+  	}
+  	//默认显示一个加载中的提示，
+  	//俩秒后提示消失，出现俩条列表
+  	//用事件委托的方式处理点赞+1 -1
+  	//点击有5条微博的时候，在页面中追加随机的微博
+  	//内容空不能发布，按钮灰色，
+  	//在输入的过程中提示数字不停的变化
+  	//还没够140子时 提示你还能输入多少字
+  	//超出后提示  你已经超出多数字
+  	//根据输入框中的值发布一条微博到列表中
+  	
+</script>
+</html>

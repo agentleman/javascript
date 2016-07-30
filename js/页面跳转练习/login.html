@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function () {
+	     var user=document.getElementById('user');	
+	     var sub=document.getElementById('sub');
+        sub.onclick=function(){
+        	if (user.value=="请输入姓名：王超 ") {
+        		alert("登录成功")
+        	}else{ open("www.baidu.com")}
+	     	}
+        }
+	</script>
+</head>
+<body>
+	<input  id="user" type="text" value="请输入姓名：">
+		
+	</input>
+	<input  id="sub" type="submit"></input>
+</body>
+</html>

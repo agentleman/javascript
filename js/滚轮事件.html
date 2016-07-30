@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="function.js"></script>
+	<title>滚轮事件</title>
+</head>
+<body>
+	<div class="one"></div>
+	<img src="image2/banner2.jpg" style="width: 100px;height: 100px">
+	<style type="text/css">
+     .one{
+     	width: 300px;
+     	height: 300px;
+     	background: #ccc;
+     }
+     body{
+     	height: 2000px;
+     }
+      img{
+      	list-style: none;
+      	margin: 0 auto;
+      }
+	</style>
+</body>
+<script type="text/javascript">
+	var  one=document.querySelector(".one");
+	console.log(one)
+	 mousewheel(one,function(){
+       var widths=this.offsetWidth+10;
+       var heights=this.offsetHeight+10;
+       
+       if (widths>=500) {
+       	  widths=400;
+       }
+       if (heights>=500) {
+       	  heights=400;
+       }
+       one.style.width=widths+"px";
+       one.style.height=heights+"px";
+	 },function(){one.style.background="red";
+        var widths=this.offsetWidth+10;
+       var heights=this.offsetHeight+10;
+       
+       if (widths>=500) {
+       	  widths=400;
+       }
+       if (heights>=500) {
+       	  heights=400;
+       }
+       one.style.width=widths+"px";
+       one.style.height=heights+"px";
+	});
+	 
+	 
+	 
+</script>
+</html>

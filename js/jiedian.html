@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var ones=document.getElementsByClassName("one");
+			var twos=document.getElementsByClassName("two");
+               
+                console.log(ones.appendChild(twos))
+                // body.appendChild(ones)
+                // ones.appendChild(twos)
+                // ones.insertBefore(p,twos)
+              ones.replaceChild(ones[3],ones[1])
+		}
+	</script>
+</head>
+<style type="text/css">
+	 .one{width: 200px;height: 200px;border:2px solid green ;text-align: center;}
+     .two{ width: 100px;height:100px;background: #999 ;border:2px solid blue;
+           display: block-inline;margin: 0 auto}
+	 p{width: 100px;height: 30px}
+</style>
+<body>
+	<div class="one">
+		<div class="two">inner</div>
+		<p>论里面</p>
+		<ul>u</ul>
+		<div></div>
+	</div>
+</body>
+</html>

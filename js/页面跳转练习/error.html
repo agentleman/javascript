@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript">
+ window.onload=function(){
+        var box1=document.getElementById("box")
+        var cw=document.documentElement.clientWidth;
+         var ch=document.documentElement.clientHeight;
+         var lefts=(cw-400)/2;
+         var tops=(ch-300)/2;
+
+       box1.style.left=lefts+"px" ;
+       box1.style.top=tops+"px" ;
+      var now=document.getElementById("now");
+      var djs=document.getElementById("djs");
+      var  num=5;
+      var t=setInterval(move,1000);
+      
+      function move(){
+      	      num--;
+      	 if(num==0){
+      	 	location.assign("login.html")
+      	 }
+      	 djs.innerHTML=num;
+      }
+        
+ }
+ </script>
+<head>
+	<meta charset="UTF-8">
+	<title>ERROR</title>
+	window.onload=function(){
+	   var lis=document.getElementsByClassName("li");
+	   var downMenu=document.getElementsByClassName("downMenu");
+	   for(var i=0;i<lis.length;i++){
+                lis[i].index=i;
+                lis[i].onmouseover=function(){
+                for(j=0;j<lis.length;j++){
+                 downMenu[j].style.display=none;
+                }
+                downMenu.[this.index].style.display="block";
+                }
+        lis[i].onmouseout=function(){
+             for(j=0;j<lis.length;j++){
+                    downMenu[j].style.display=none;
+                 }
+               
+        }
+	   }
+	}
+
+</head>
+<script type="text/javascript">
+  (function(n){
+	lis[n].onmouseover=function(){
+                for(j=0;j<lis.length;j++){
+                 downMenu[j].style.display=none;
+                }
+                downMenu.[n].style.display="block";
+                }
+        lis[n].onmouseout=function(){
+             for(j=0;j<lis.length;j++){
+                    downMenu[j].style.display=none;
+                 }
+               
+        }
+	   })(i)
+</script>
+<style type="text/css">
+	#box{
+		width: 400px;
+		height: 300px;
+		border:1px solid #666;
+		position: absolute;
+		vertical-align: middle;
+		text-align: center;
+	}
+	#item,#title,#now {text-align: center;line-height: 30px;}
+	#now{box-shadow: 0px 3px 10px #666;width: 150px;margin: 0 auto;}
+</style>
+<body>
+	<div id="box">
+		<div id="title">Error</div>
+		<div id="con">
+		    <div id="item">
+			   <span id="djs">5</span>s后返回上一页
+
+		    </div>
+		 </div>
+		<div id="now">
+			马上返回
+		</div>
+	</div>
+</body>
+</html>

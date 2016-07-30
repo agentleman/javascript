@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+.magic{
+	width:50px;
+	height: 50px;border:3px dashed white;
+	background: green;
+	z-index: 1;
+	position: absolute;
+	left: 300px;
+	top: 300px;
+}
+
+.one{width: 100px;
+     height: 100px;
+     border:1px solid #ccc;
+    float: left;margin: 5px;
+    opacity: 0.5;}
+
+.selected{
+    
+}     
+</style>
+<body>
+	<div class="one"style="width:200px"></div>
+	<div class="magic"></div>
+	<div class="one"></div>
+	<div class="one "></div>
+   <div  class="one"style="height: 200px"></div>
+</body>
+<script type="text/javascript">
+	
+// el.onclick=function(e){
+// 函数在定义的时候，会记录下自己可变范围内的所有变量，形成一个链条，叫做函数的作用域链，
+// 函数调用时，如果在函数内部有对变量的引用，函数会在自己的作用域链中由近及元的去寻找这个变量
+// 匿名函数是一个单独的函数
+
+	   
+
+	 
+	 var els=document.getElementsByClassName("one")
+	 for (var i = 0; i < els.length; i++) {
+	 	var kaiguan=true;
+	 	els[i].onclick=function(){
+
+	  	 	// return function(){
+	  	 		if (kaiguan) {	  	 
+	  	 			var r=Math.floor(Math.random()*255);
+	  	 			var g=Math.floor(Math.random()*255);
+	  	 			var b=Math.floor(Math.random()*255);
+	  	 			this.className="one selected";
+
+	  	 			this.style.backgroundColor='rgb('+r+','+g+','+b+')';
+	  	 			kaiguan=false;
+
+	  	 		}else{
+	  	 			this.className="one";
+	  	 			this.style.position="static";
+	  	 			this.style.backgroundColor="transparent";
+	  	 			kaiguan=true;
+	  	 		}
+            //  }  
+        }            
+    }
+    document.ondblclick=function(e){
+    	var selected=document.getElementsByClassName("selected");
+    	for (var i = 0; i < selected.length; i++) {
+    		selected[i].style.position="absolute";
+    		selected[i].style.top=e.clientY-selected[i].offsetHeight/2+"px";
+    		selected[i].style.left=e.clientX-selected[i].offsetWidth/2+"px";
+    	}
+
+    }
+
+
+	// document.onmousedown=function(e){
+	// 	document.onmouseup=function(ev){
+ //       var offx=ev.clientX-e.clientX;
+ //       var offy=ev.clientY-e.clientY;
+ //       var selected=document.getElementsByClassName("selected");
+ //         for (var i = 0; i < selected.length; i++) {
+ //         	          as=selected[i];
+ //         	    as.style.left=as.offsetLeft+offx+"px";
+ //         	    as.style.top=as.offsetTop+offy+"px";
+ //         }
+		 	
+	// 	}
+	// }  
+/*魔棒*/
+var Magic=document.getElementsByClassName("magic")[0]
+Magic.onmousedown=function (ov) {
+	var a=ov.offsetX;
+	var b=ov.offsetY;
+
+	document.onmousemove=function(ev){
+		var c=ev.clientX;
+		var d=ev.clientY;
+		Magic.style.left=c-a+"px";
+		Magic.style.top=d-b+"px";
+	}
+}
+document.onmousedown=function(e){
+	document.onmouseup=function(ev){
+		var offx=ev.clientX-e.clientX;
+		var offy=ev.clientY-e.clientY;
+		var selected=document.getElementsByClassName("selected");
+		for (var i = 0; i < selected.length; i++) {
+			as=selected[i];
+			as.style.left=as.offsetLeft+offx+"px";
+			as.style.top=as.offsetTop+offy+"px";
+		}
+	}
+}
+</script>
+</html>

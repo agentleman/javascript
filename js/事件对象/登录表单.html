@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	ul,li{
+		list-style: none;}
+	.register-box{
+		padding-top: 30px;
+		position: absolute;
+		width: 400px;
+		height: 500px;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		border:1px solid #ccc;
+		text-align: center;
+	}
+	.register-box li input{
+		outline: none;
+		border:none;
+		border-bottom: 2px solid #666;
+		width: 250px;
+		display: inline-block;
+		padding: 5px 10px;
+		margin: 10px auto;
+	}
+	.active{
+		background-color: green;
+		cursor:pointer;
+	}
+	.waring{
+		background: #ffa122;
+		color: white;
+		font-size: 12px;
+		border:1px black #ccc;
+	}
+	.button{
+        display: inline-block;
+        width: 100px;
+        height: 70px;
+	}
+	span{
+		padding-left: 0;
+	}
+</style>
+<body>
+
+	<ul  class="register-box">
+		<li>登录名：<input type="text"name="username"></input>
+			<span class="tip"></span>
+		</li>
+		<li>密  码：<input type="password"name="pass"></input>
+			<span class="tip"></span>
+		</li>
+		<li>再输入：<input type="text"name="passrepeat"></input>
+			<span class="tip"></span>
+		</li>
+		<li><input type="button"name="btn" class="button"value="注册"   ></input>
+		</li>
+
+	</ul>
+</body>
+<script type="text/javascript">
+   //获取数据
+			var users={'zhangsan':true,'lisi':true,'wangwu':true,'zhaoliu':true};
+			var state={yi:false,er:false,san:false};
+            var span=document.getElementsByClassName("tip")[0]; 
+            var username=document.getElementsByName('username')[0];
+            var pass=document.getElementsByName('pass')[0];
+            var passrepeat=document.getElementsByName("passrepeat")[0];
+            var registerbtn=document.getElementsByName('btn')[0];
+  //数据操作   
+                        
+			var  addwaring=function(el,info){
+				  var tips=el.parentElement.querySelector(".tip");
+                    tips.classList.add("waring");
+                    tips.innerHTML=info;
+			}
+			var removewaring=function(el){
+                     var tips=el.parentElement.querySelector(".tip");
+                     tips.innerHTML=" ";
+		             tips.classList.remove("waring");
+			}
+			check=function(){
+
+				if(registerbtn.classList.add('active')){
+
+			}else{
+
+			}
+
+}
+    //UI操作
+			username.onchange=function(){
+				if (users[this.value]) {
+					addwaring(this,'用户名存在 ')
+				}else{
+					removewaring(this);
+				}
+			}
+			pass.onchange=function(){
+                 if (pass.value.length<6) {
+                 	addwaring(this,'强度不够')
+                 }else{
+                 	removewaring(this);
+                 }
+			}
+
+			passrepeat.onchange=function(){
+				if (this.value==pass.value) {
+					addwaring(this,"正确");
+					removewaring(this);
+				}else{
+                   addwaring(this,"请重新输入");  
+				}
+
+			}
+			registerbtn.onclick=function(){
+				if(this.hasAtttibute('active')){
+
+					setTimeout
+				}
+			}
+   </script>
+</html>

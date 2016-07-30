@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+</head>
+<body>
+	<div class="big">
+	    <div class="opacity"></div>
+	    <div class="square"></div>
+		<img src="image2/6.jpg" style="width: 300px ;height:300px">
+	</div>
+	<div class="small"><img src="image2/6.jpg" class="sm" style="width: 900px ;height:900px;position: absolute;"></div>
+	<style>
+        .big{
+        	width: 300px;
+        	height: 300px;
+        	border: 2px solid red;
+        	float: left;
+            overflow: hidden;
+            position: relative;
+            margin-left: 200px;
+        }
+        .small{
+        	width: 300px;
+        	height: 300px;
+        	border: 2px solid red;
+        	float: left;
+        	margin-left: 30px;
+        	overflow: hidden;
+        	position: relative;
+        	left:100px;
+        }
+        .square{
+        	width: 100px;
+        	height: 100px;
+        	background-color: rgba(0,0,0,0.5);
+        	z-index: 1;
+        	position: absolute;
+            display: none;
+        }
+        .opacity{
+            width: 300px;
+        	height: 300px;
+        	position: absolute;
+        	z-index: 5;
+        	background-color: rgba(255,255,255,0.2);	
+        }
+	</style>
+</body>
+     <script type="text/javascript">     	
+      var big=document.querySelector(".big");
+      var small=document.querySelector(".small");
+      var square=document.querySelector(".square");
+      var opacity=document.querySelector(".opacity");
+        opacity.onmousemove=function(e){
+        	var ev=e||window.event;          
+        	var cw=square.offsetWidth;//获取小方块的宽
+        	var ch=square.offsetHeight;
+        	var ox=ev.offsetX;//获取鼠标距离事件源的距离
+        	var oy=ev.offsetY;
+        	var lefts=ox-cw/2;
+        	var tops=oy-ch/2;
+        	var img=document.querySelector(".sm");
+            var boX=ev.offsetX;
+            var boY=ev.offsetY;
+            if (lefts<=0) {
+            	lefts=0
+            }
+            if (lefts>=200) {
+            	lefts=200;
+            }
+            if (tops<=0) {
+            	tops=0
+            }
+            if (tops>=200) {
+            	tops=200;
+            }
+            square.style.display="block";
+            square.style.left=lefts+"px";
+            square.style.top=tops+"px";
+            img.style.left=-lefts*3+"px";
+            img.style.top=-tops*3+"px";
+        }
+     </script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <div  class="one">我是ONE</div>	
+    <style type="text/css">
+          .one{
+          	border:1px solid red;
+          	width: 300px;
+          	height:300px;
+          	text-align: center;
+          	line-height: 30px;
+          	font-size: 30px;
+          	font-weight: 50;
+          	margin-left: 20px;
+          	margin-top: 20px;
+          	/*position: absolute;*/
+
+          }
+    </style>
+    <script type="text/javascript">
+        var one=document.querySelector(".one");
+    	var heights=getComputedStyle(one,null).height;
+    	var height=one.offsetHeight;
+    	var tops=one.offsetTop;
+    	var left=one.offsetLeft;
+    	console.log(heights,height);
+    	console.log(tops,left);
+    	one.onmousemove=function(e){
+    		var ev=e||window.event;
+    		one.innerHTML="cx="+ev.clientX+",cy="+ev.clientY+";<br>sx="+ev.screenX+",sy="+ev.screenY+";<br>ox="+ev.offsetX+",oy="+ev.offsetY+""
+    	console.log()	
+    	}
+    </script>
+
+</body>
+</html>

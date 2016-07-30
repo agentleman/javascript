@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+    .tip{
+    	width: 310px;
+    	height: 40px;
+    	border:1px solid black;
+    	margin: 0 auto;
+    	padding-left:10px;
+    	line-height: 40px;
+    	color: red;
+    	font-weight: bold;
+    }
+	.da{
+		position: relative;
+		width: 320px;
+		height: 100%;
+		border:1px solid black;
+		margin: 0 auto;
+	}
+	/*.bigtext{
+		width: 320px;
+		height: 130px;
+		border:1px solid black;
+		margin: 0 auto;
+		padding: 5px;
+	}*/
+	.foot{width:300px;
+		height: 110px;
+		border:1px solid black;
+		margin: 5px  auto;
+		line-height:20px;
+	}
+	
+	.jiazai{
+		width: 250px;
+		height: 80px;
+		background:#999;
+		line-height: 80px;
+		color:white;
+		font-size: 20px;
+		margin: 0 auto; 
+		padding-left: 10px;
+		display: block;
+		
+		top:20px; 
+		left: 35px;
+		position: absolute;
+	}
+	.text{
+		width: 313px;
+		height:100px;
+		border:1px solid black;
+		margin:  auto;
+		border-bottom: none;
+		border-top: none;
+        display: block;
+        padding-left: 5px;
+        font-size: 14px;
+        line-height: 20px;
+	}
+	.yzan{
+		background-color: #999;
+	}
+	
+	.zuida{
+		position: relative;
+		width: 330px;
+		height: 100%;
+		
+		margin: 0 auto;
+
+	}
+	.waring{
+		width: 250px;
+		height: 20px;
+		border:1px solid #dddddd;
+		z-index: 2;
+		position: absolute;
+		top: 70px;
+		left:15px;
+		font-size: 14px;
+		line-height: 20px;
+		display: none;
+	}
+	.mingzi{
+		font-weight: bold;
+		font-size: 16px;
+	}
+</style>
+<body>
+    <div class="tip">有5条新消息</div>
+    <div class="zuida">
+        <div class="jiazai">加载中···· </div>
+        <div class="waring"></div>
+          <textarea class="text">
+            
+          </textarea>
+    
+	    <div class="da">s
+		   <div class='foot'>
+			   <span class="mingzi">王晓壮</span>
+			   <p>  这波可以</p>
+			   <span class="like">赞(123)</span>
+		   </div>
+		   <div class='foot'>
+		       <span class="mingzi">王亚林</span>
+			   <p>海哥 </p>
+			   <span class="like">赞(12300)</span>
+		  </div>
+	  </div>
+	</div>
+   
+
+</body>
+<script type="text/javascript">
+	var tips=document.querySelector('.tip')
+//加载操作	
+	setTimeout(
+		function jiazai(){
+			var jiazai=document.querySelector('.jiazai');
+			jiazai.style.display='none';
+
+			var da=document.querySelector('.da')
+			var foots=document.createElement('div');
+			foots.classList.add('foot');
+			foots.innerHTML='<span class="mingzi">林书豪</span> <p>  这波可以</p> <span class="like">赞(10000)</span>'
+			da.insertBefore(foots,da.firstElementChild)
+			
+		},1000);
+//追加操作
+	tips.onclick=function(){
+		var shujv=[{name:'科比',content:'今天要高兴',like:'赞(1000)'},
+		{name:'屈小雨',content:'今天要高兴',like:'赞(1000)'},
+		{name:'严峻寒',content:'今天要高兴',like:'赞(1000)'},					
+		{name:'郭雪辉',content:'今天要高兴',like:'赞(1000)'},
+		{name:'乔丹',content:'今天要高兴',like:'赞(1000)'},
+		{name:'科比',content:'今天要高兴',like:'赞(10100)'}];
+
+		for (var i = 0; i < 5; i++) {
+			var da=document.querySelector('.da')		
+			var data=shujv[i];
+			var el=document.createElement('div');
+			el.classList.add('foot');
+			el.innerHTML='<span class="mingzi">'+data.name+'</span><p>'+data.content+'</p><span class="like">'+data.like+'</span>'
+			da.insertBefore(el,da.firstElementChild);
+		}
+	}
+//点赞操作	
+	var da=document.querySelector('.da');
+	da.onclick=function(e){
+		el=e.target;
+		if(el.classList.contains('yzan')){
+
+			quxiao(el,e);
+
+		}else if(el.classList.contains('like')){
+
+			tishi(el,e);
+		}
+	}
+	tishi=function(el){
+		var zans=document.getElementsByClassName('like');
+		var num=parseInt(el.innerHTML.slice(2,-1))+1;
+		el.innerHTML='取消赞('+ num +')';
+		el.classList.add('yzan');
+		console.log( num)
+	}
+	quxiao=function(el){
+		var zans=document.getElementsByClassName('like') 
+		var num=parseInt(el.innerHTML.slice(4,-1))-1;
+		el.innerHTML='赞('+ num +')';
+		el.classList.remove('yzan') ;
+	}
+	//输入操作
+	var text=document.querySelector('.text');
+                                
+      text.onkeyup=function(){
+      	  if (this.innerHTML.length<10) {
+      	  	var help=document.createElement('div');
+      	  	var num=this.innerHTML.length;
+      	  	console.log(num)
+           	  	help.classList.add('waring');
+      	  	    help.style.display='block' ;
+      	  	    help.innerHTML='还能输入'+(10-num)+'字';
+      	  	    zuida.insertBefore(help,zuida.firstElementChild);
+      	  }
+      }
+</script>
+</html>
+    <!--   默认显示一个加载中的提示，
+  	俩秒后提示消失，出现俩条列表
+  	用事件委托的方式处理点赞+1 -1
+  	点击有5条微博的时候，在页面中追加随机的微博
+  	内容空不能发布，按钮灰色，
+  	在输入的过程中提示数字不停的变化
+  	还没够140子时 提示你还能输入多少字
+  	超出后提示  你已经超出多数字
+  	根据输入框中的值发布一条微博到列表中 -->

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="js/animate.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<div class="box">
+		<div class="head">顶部</div>
+		<div class="floor"> <img src=""title="image1/banner1.jpg"></div>
+		<div class="floor"> <img src=""title="image1/banner2.jpg"></div>
+		<div class="floor"> <img src=""title="image1/banner3.jpg"></div>
+		<div class="floor"> <img src=""title="image1/banner4.jpg"></div>
+		<div class="floor"> <img src=""title="image1/banner5.jpg"></div>
+		<div class="footer">底部</div>
+	</div>
+	<div class="jump">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+	<style type="text/css">
+	    ul,li,div,body{
+	    	margin: 0;
+	    	padding: 0;
+	    	list-style: none;
+	    }
+        .box{
+        	width: 800px;
+        	height: 100%;
+        	border: 1px solid black;
+        	margin: 0 auto;
+        	text-align: center;
+        }
+        .head{
+        	width: 800px;
+        	height: 50px;
+        	border-bottom:1px solid red;
+        	font-weight: bold;
+        	font-size: 40px;
+        	line-height: 50px;
+        }
+        .footer{
+        	width: 800px;
+        	height: 50px;
+        	border-bottom:1px solid red;
+        	font-weight: bold;
+        	font-size: 40px;
+        	line-height: 50px;       	
+        }
+        .floor{
+        	width: 800px;
+        	height: 380px;
+        	margin-top: 20px;
+        	border-bottom: 1px solid black;
+        }
+        .jump{
+        	width: 52px;
+        	height: 280px;
+        	position: fixed;
+        	left: 20px;
+        	top: 200px;
+        }
+        li{
+        	height: 50px;
+        	width: 50px;
+        	border: 1px solid black;
+        	margin-top: 3px;
+        	text-align: center;
+        	line-height: 50px;
+        	font-size: 30px;
+        	font-weight: bold;
+        	background: #ddd;
+        	cursor: pointer;
+        }
+	</style>
+</body>
+<script type="text/javascript">
+	var floors=document.querySelectorAll(".floor");
+	var jumps=document.querySelectorAll("li");
+	var pH=document.documentElement.clientHeight;
+	var arr=[];
+	for (var i = 0; i < floors.length; i++) {
+		arr.push(floors[i].offsetTop);
+	}
+	//按需加载
+	window.onscroll=function(){
+		var obj=document.body.scrollTop?document.body:document.documentElement;
+		var gundongjvli=obj.scrollTop;
+		for (var i = 0; i < arr.length; i++) {
+			if (gundongjvli+pH>arr[i]+150) {
+				var imgs=floors[i].getElementsByTagName('img');
+				for (var j = 0; j < imgs.length;j++) {
+					imgs[j].src=imgs[j].title;
+				}
+			}
+		}
+	}
+	//跳转
+	// for (var i = 0; i < jumps.length; i++) {
+	// 	jumps[i].index=i;
+	// 	jumps[i].onclick=function(){        
+	// 		animate(document.body,{scrollTop:floors[this.index].offsetTop-150},function(){});
+	// 		animate(document.documentElement,{scrollTop:floors[this.index].offsetTop-150},function(){});
+	// 		for (var i = 0; i < jumps.length; i++) {
+	// 			jumps[i].style.background="#ddd";
+	// 		} 
+	// 		jumps[this.index].style.background="red"; 
+	// 	}
+	// }
+	// //滚轮滚动的时候楼层(jump)的样式随着改变
+	// window.onscroll=function(){
+	// 	var obj=document.body.scrollTop?document.body:document.documentElement;
+	// 	var gundongjvli=obj.scrollTop;
+	// 	for (var i = 0; i < arr.length; i++) {
+	// 		arr[i].index=i;
+	// 		if (gundongjvli+pH>arr[i]) {
+	// 			for (var j = 0; j < jumps.length; j++) {
+	// 				jumps[j].style.background="#ddd";
+	// 			}
+	// 			jumps[i].style.background="red";
+	// 		}
+	// 	}
+	// }
+</script>
+</html>

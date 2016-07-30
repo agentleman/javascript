@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	.da{ 
+		width: 400px;
+		height: 500px;
+		border:1px solid blue;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom:0;
+		left:0;
+		margin: auto; 
+	  }
+	.xiao{
+		width: 100px;
+		height: 100px;
+		border:1px solid green;
+		margin: 5px;
+		float: left;
+		text-align: center;
+		line-height: 100px;
+	}	
+
+.a{
+	width: 30px;
+	height: 30px;
+	border:1px solid #ccc;
+	float: left;
+	margin: 8px;
+	line-height: 30px;
+	text-align: center;
+}
+</style>
+<body>
+		<div class="da ">
+			<div class="xiao">
+				<div class="a zan">中</div>
+				<div class="a cai">国</div>
+				<div class="a ping">味</div>
+				<div class="a lun">道</div>
+			</div>
+		</div>
+</body>
+<script type="text/javascript">
+	// var da=document.querySelector('.da')
+	// var xia=document.querySelector('.xiao')
+	// document.ondblclick=function(){
+	// 	div=document.createElement('div');
+	// 	div.classList.add('xiao');
+	// 	div.innerHTML="<div class='a zan'> 赞 </div> <div class='a cai'>踩</div> <div class='a ping'>评 </div> <div class='a lun'>论 </div>"
+	// 	da.insertBefore(div,da.firstElement);
+
+	// }
+	// da.onclick=function(e){
+	// 	var  tg=e.target;
+	// 	if(tg.className=='a zan'){
+	// 		fn1(tg);
+	// 	}else if(tg.className=='a cai'){
+	// 		fn2(tg);
+	// 	}else if(tg.classList.contains('ping')){
+	// 		fn3(tg,e);                              
+	// 	}else if(tg.className=='a lun'){
+	// 		fn4(tg);
+	// 	}   	
+	// }
+
+	// da.onclick=function(e){
+	// 	var tg=e.target;
+	// 	if(tg.classList.contains('zan')){
+	// 		fn1.call(tg,e)
+	// 	}else if(tg.classList.contains('cai')){
+	// 		fn2.call(tg,e)
+	// 	}else if(tg.classList.contains('ping')){
+	// 		fn3.call(tg,e)
+	// 	}else if(tg.classList.contains('lun')){
+	// 		fn4.call(tg,e)
+	// 	}
+	// // }
+	fn1=function (tg) {
+		tg.style.background='red';
+
+	// }
+	// fn2=function (tg) {
+	// 	tg.style.background='green';
+
+	// }
+	// fn3=function (tg) {
+	// 	tg.style.background='blue';
+
+	// }
+	// fn4=function (tg) {
+	// 	tg.style.background='#ccc';
+
+	// }
+
+	
+
+	var  da=document.querySelector('.da');
+	var  xiao=document.querySelector('.xiao');
+	document.ondblclick=function(){
+			     div=document.createElement('div');
+		         div.classList.add('xiao');
+		         div.innerHTML='<div class="a zan">中</div><div class="a cai">国</div><div class="a ping">味</div><div class="a lun">道</div>'
+		         da.insertBefore(div,da.firstElement);
+             console.log(div)
+	}
+	da.onclick=function(e){
+          var  tg=e.target;
+          if (tg.classList.contains('zan')) {
+          	fn1.call(tg,e);
+          }
+	}
+
+</script>
+</html>			

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="height: 2000px">
+    <script type="text/javascript">
+	  /* alert(window.innerWidth)
+	   alert(document.documentElement.clientWidth)
+	   alert(window.screen.width,window.screen.height)*/
+	   /*window.status="设置窗口状态文本"*/
+	   /*window.moveBy(100,100);
+	   aesizeBy(100,100)*/
+	   /*setInterval( function(){
+	   	alert(1)
+	   },1000)*/
+	     /* var t=setInterval( move ,1000);
+	      function move(){
+	      	alert(1);
+	      }
+
+	      document.body.onclick=function(){
+	      clearInterval(t);}
+
+	      setInterval(function(){})
+	      var flag=true;
+	      var t;
+	      document.documentElement.onclick=function(){
+	      	
+	      	if(flag){
+	      		  t=setInterval(function(){
+	      			scrollBy(0,30)
+	      		},1000)
+	      		flag=false;
+	      	}else{
+	      		clearInterval(t);
+	      		flag=true;
+	      	}
+	      } */
+
+	    //window.onload=function(){
+	     /* 	    function aa(){
+	      	    	scrollBy(0,1)
+	      	    	t=setTimeout(aa,1);
+	      	    }
+	      var t=setTimeout(aa,1); 
+	      */
+	       /*setTimeout(  function(){
+	      	scrollBy(0,30)
+	       },1000)
+   */
+  window.onload=function(){
+        var ones=document.getElementById("one");
+        var twos=document.getElementById("two");
+        var divs=document.getElementsByTagName("div")[0];
+            // one.onclick=function(){
+            // 	open("open.html","新窗口","width=300,height=300");
+            	// }
+            
+            // console.log(ones.childNodes)
+            // console.log(twos.parentNode)
+            // console.log(ones.firstChild)
+            // console.log(ones.lastChild)
+            // console.log(ones.nodeType)
+            // console.log(divs.nodeType)
+            // console.log(width.nodeType)
+            console.log(divs.nodeName)
+
+            // console.log(width.nodeType)
+  // 获取对象的子元素
+  // obj   父元素
+  // type   true   获取节点和有意义的文件
+  //        false   获得元素节点       
+         function getchilds (obj,type){
+                var newArr=[];
+                var childs=obj.childNodes;
+                var type=type?type:false;
+              if (type===false) {console.log(childs)
+                for (var i=0; i<childs.length; i++){
+                	if (childs[i].nodeType==1) {
+                		newArr.push(childs[i])
+                	}
+                }     
+               } else if(type===true){
+               	     for (var i=0; i<childs.length; i++) {
+               	     	if(childs[i].nodeType
+    ==1||childs[i].nodeType==3&&!(/^\s+$/.test(childs[i].nodeValue)))
+               	         {newArr.push(childs[i]);
+               	         }
+                     }
+
+                }
+                return  newArr;
+         }
+           console.log(getchilds(divs,true)) 
+       }
+     function  getfirst(obj){
+     	return getchilds(obj)[0];
+   }
+
+
+    function  getlast(obj){
+    	return getchilds(obj)[getchilds.length-1] 
+    }
+   
+
+      function getNum(num){
+      	return getchilds(obj)[num];
+      }
+
+
+      function  next(obj){
+
+      }
+ </script>
+ <style type="text/css">
+          #one{  width:300px;height:300px;background:#f4f4f4;
+              border:1px solid blue; line-height: 100px;text-align: center;} 
+
+ </style>
+    <div id="one">
+    	<div class="two">这是里边的盒子</div>
+    	<ul  id="two">u标签</ul>
+    	<p>   p标签</p>
+          
+    </div>
+</body>
+</html>

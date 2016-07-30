@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	ul,li{
+		
+		list-style: none;
+
+	}
+	ul{width: 300px;
+		margin: 0 auto;
+		padding: 10px 15px;
+		height: 400px;
+		border:1px solid black;
+		text-align: center;
+		margin:0 auto;}
+		ul input{
+			border:none;
+			outline: none;
+			border-bottom:2px red solid;
+			margin: 0 auto;
+			margin: 50px;
+		}
+		span{display: block;padding-left: 0}	
+		.waring{
+			color: white;
+			background-color: #ff1256;
+			display: inline-block;
+			padding: 5px;
+			margin: 5px 0;
+		}
+		.success{
+			background-color: #89D494;
+			color: white;
+			display: inline-block;
+			padding: 5px;
+			margin: 5px 0;
+		}
+	</style>
+	<body>
+	<!-- <input type="text" value="aa"></input>
+	nan  <input type="radio" name="xingbie"></input>
+	nv	 <input type="radio" name="xingbie"></input>
+    <select id="select">
+    	<option value="x">1</option>
+    	<option value="y">2</option>
+    	<option value="z">3</option>
+    </select>
+    <br>
+
+    aihao:
+    	lanqiu<input type="checkbox" name="aihao"></input>
+    	zuqiu<input type="checkbox"  name="aihao"></input>
+    	youyong<input type="checkbox" name="aihao"></input>
+    <br>
+    <textarea name="name" rows="8"cols="20">
+    	
+    </textarea> -->
+    <ul>
+    	<li><input type="text" name="text"></input><span class="tip"></span></li>
+    	<li><input type="password" name="password" value=""><span id="tip">  </span></input>
+    	</li>
+
+    	<li><input type="text"name="passrepeat"value=""></input><span id="tip"> 确认密码 </span></li>
+    	
+    </ul>
+</body>
+<script type="text/javascript">
+     // var pass1=123;
+     // var pass1=document.getElementsByName("password");
+// 	var  els=document.getElementsByName("xingbie");
+// 	for (var i = 0; i < els.length; i++) {
+
+// 	  els[i].onblur=function(){
+// 	   	console.log('chenkbox focus')
+// 	   }	
+// 	  els[i].onfocus=function(){
+// 	   	console.log('checkbox blur')
+// 	   }
+// 	  els[i].onchange=function(){
+// 	   	console.log('checkbox change')
+// 	   } 
+// }
+      // var tips=document.getElementById("tip")
+      // var pass=document.getElementsByName("password");
+      // var repeats=document.getElementsByName("passrepeat")[0];
+      // var span=document.getElementsByTagName("span")[0];
+
+         // console.log(repeats)
+//      repeats.onkeyup=function(){
+//            if(this.value==pass1.value) {
+//            	  tips.innerHTML="你打对了"
+//               tips.classList.add('success');
+//            }else{
+//            	  tips.innerHTML="请再次输入密码";
+//            	  tips.classList.remove("success")
+//            	  tips.classList.add("waring")
+
+//      }
+// }
+var TEXT=document.getElementsByName('text')[0]
+var tips=document.getElementById("tip")
+var pass=document.getElementsByName("password")[0];
+var repeats=document.getElementsByName("passrepeat")[0];
+pass.onchange=function(){
+	var tips=this.parentElement.querySelector(".tip");
+	console.log(tips)
+	if (tips.value.length<6) {
+		tips.innerHTML="请输入正确字符";
+		tips.classList.add("waring")
+	}else{
+		tips.innerHTML=" ";
+		tips.classList.remove("waring")
+	}
+}
+
+var users={};
+for (var i = 0; i < 80; i++) {
+	users['item_'+i]=true;
+}
+TEXT.onchange=function(){
+	var span=this.parentElement.querySelector(".tip")
+	if (users[this.value]) {
+
+
+	}
+}
+repeats.onchange=function(){
+	var tips1=this.parentElement.querySelector(".tip");
+	if (this.value!==pass.value) {
+		tips1.innerHTML="错啦"
+		tips1.classList.add("waring")
+	}else{
+		tips1.innerHTML=" ";
+		tips1.classList.remove("waring")
+	}
+
+}
+var check=function(){
+	if (state[1]&&state[2]&&state[3]) {
+		btn.classList.add("btn1");
+	}else{
+		btn.classList.add("btn2");
+	}
+}
+
+
+pass.onchange=function(){
+	var tips=this.parentElement.querySelector(".tip");
+	if (shifouzai(this.value)) {
+		tips.innerHTML="输入正确"
+	}else{
+		tips.innerHTML=""
+	}
+}
+
+var arr=["zhangsan","lisi","wangwu","zhaoliu"]
+var shifouzai=function(mingzi) {
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i]==mingzi) {
+			return true;
+		}
+	}
+	return false;
+}
+var  arr=["zhangsan","lisi","wangwu","zhaoliu"]
+var  shifouzai=function(){
+	for( var i=0;i<arr.length;i++){
+		if (arr[i]==mingzi) {
+			return true;
+		}
+	}
+	return false; 
+}
+tianjiajingao=function(el,info){
+	var tips=el.parentElement.querySelector(".tip");
+	tips.innerHTML="请重新输入"
+	tips.classList.add('waring')
+}
+shanchujinggao=function(el){
+	var tips=el.parentElement.querySelector(".tip");
+	tips.classList.remove("success");
+}
+</script>
+</html>
+

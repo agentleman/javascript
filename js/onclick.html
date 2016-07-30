@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>history1</title>
+	<script >
+	      window.onload=function(){
+	      	alert(history.length);
+	      	var aa=document.getElementById('forward');
+	      	var bb=document.getElementById('back');
+	        var cc=document.getElementById('go');
+	       aa.onclick=function(){
+	       	       history.forward();
+	       }
+	        bb.onclick=function(){
+	       	       history.back();
+	       }
+	        cc.onclick=function(){
+	       	       history.go();
+	       }
+	      }
+		
+	</script>
+</head>
+<style >
+	div{
+		width: 50px;height: 30px;line-height: 30px;
+	}
+</style>
+<body>
+     <a href="history2.html">这是又一个链接</a>
+    <div id="forword">前进</div>
+	<div id="back">后退</div>
+	<div id="go">刷新</div>
+</body>
+</html>

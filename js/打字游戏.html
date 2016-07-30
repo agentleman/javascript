@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<style type="text/css">
+.box{ 
+height: 600px;
+line-height: 300px;
+vertical-align: middle;
+position: relative; 
+border:1px solid blue;
+overflow: hidden;
+background:blue;
+margin: 0 auto}
+.zi{ display: inline-block;
+border:3px solid white;
+width:70px;
+height: 70px;
+background: red;
+line-height: 70px;
+text-align: center;
+font-size: 70px;
+color: white;
+position: absolute;
+border-radius: 50%;
+font-family: "宋体"；
+font-weight:bold;} 
+img{border:none;vertical-align: middle;margin: 0;width: 100%;
+height:100%;}
+.img{float: left;}
+</style>
+<body>
+<div class="box">
+   <!--  <div class="img"> <img src="./image/6.jpg"></div> -->
+	<!-- <div class="img"><img src="./image/9.jpg"></div> -->
+<!-- 	<div class="img"><img src="./image/8.png"></div>
+	<div class="img"><img src="./image/7.jpg"></div> -->
+</div>
+	
+</body>
+<script type="text/javascript">
+	// document.keypress=function (e){
+	// 	console.log( "press")
+	// }
+	// document.keyup=function(e){
+	// 	console.log("up")
+	// }
+	// document.keydown=function(e){
+	// 	console.log("down")
+	// }
+	// var obj={}
+	// for (var i = 10000; i < 11000; i++) {
+	// 	obj[i]=(i,String.fromCharCode(i) );
+
+	// }
+	// console.log(JSON.stringify(obj) );
+	 // var box=document.querySelector('.box')
+	 // document.onkeyup=function(e){
+	 // 	 var zimu=String.fromCharCode(e.keyCode).toLowerCase();
+	 // 	 if(zimu==="a"){
+	 // 	 	box.removeChild(box.firstElementChild)
+	 // 	 	document.createElement('div');
+	 // 	 	el.classlist.add('zi');
+
+	 // 	 }
+	 // }
+	// document.onkeyup=function(e){
+	// 	var  key=String.fromCharCode(e.keyCode).toLowerCase();
+
+	// 	if (key===' '){
+	// 		box.removeChild(box.firstElementChild);
+	// 		var el=document.createElement('div');
+	// 		el.className="zi";
+	// 		var r=Math.floor(Math.random()*255);
+	// 		var g=Math.floor(Math.random()*255);
+	// 		var b=Math.floor(Math.random()*255);
+	// 		el.style.backgroundColor="rgb("+r+","+g+","+b+")"
+	// 		el.innerHTML=String.fromCharCode(Math.floor(Math.random()*25+97));
+	// 		box.appendChild(el);
+	// 	}
+	
+// 	 var  box=document.getElementsByClassName('box')[0]
+//      //在UI上创建   在数据中创建
+//       var zimujihe={};
+//       var shuliang=5; 
+//      var createzimu=function(){
+     
+//      var zimu=String.fromCharCode(Math.floor(Math.random()*25+97) );
+//      var el=document.createElement('div');
+
+//      el.className="zi";
+//      box.appendChild(el);
+//      var r=Math.floor(Math.random()*255);
+//      var g=Math.floor(Math.random()*255);
+//      var b=Math.floor(Math.random()*255);
+//      el.style.left=Math.floor(Math.random()*(box.offsetWidth-el.offsetWidth))+"px"
+//      el.style.backgroundColor="rgb("+r+","+g+","+b+")"
+//      el.innerHTML=zimu;
+//        zimujihe[zimu]=el;         //zimu做健  div做值
+
+//            }
+//         createzimu();
+
+// //UI中移除  数据中移除
+// removezimu=function(zi){
+// 	var el=zimujihe[zi]
+// 	el.parentElement.removeChild(el);
+// 	delete el;
+
+// }
+// document.onkeyup=function(e){
+// 	 if (e.keyCode===32) {
+//       	kaiguan();
+//         return;
+//        }
+//  var key=String.fromCharCode(e.keyCode).toLowerCase();
+
+//      	if (zimujihe[key]) {
+// 		removezimu(key);
+// 		createzimu();
+// 	}
+// }
+// /*连续下降*/
+// diao=function(){
+// 	var zimu;
+// 	for (var i in zimujihe){
+// 		el=zimujihe[i];
+// 		el.style.top=el.offsetTop+2+"px";
+// 		if (el.offsetTop>box.offsetHeight) {
+// 			zimu=i;
+// 		}
+// 		if (zimu==i) {
+// 			removezimu(zimu);
+// 			createzimu();
+
+// 		}
+// 	}
+// }
+//  var timeid=setInterval(diao,5)
+// /*开关*/
+//   var kaiguan=function(){
+//   	if (timeid) {
+//   		clearInterval(timeid);
+//   		timeid=null;
+//   	}else{
+//        timeid=setInterval(diao,5);  
+//   	}
+//   }
+
+
+
+var  box=document.getElementsByClassName('box')[0]
+     //在UI上创建   在数据中创建
+     var shuliang=5;
+     var zimujihe={}; 
+     var createzimu=function(){
+     	do{  
+     var zimu=String.fromCharCode(Math.floor(Math.random()*25+97) );
+	 }while(zimujihe[zimu]);//去重
+	 var el=document.createElement('div');
+	 el.className="zi";
+	 box.appendChild(el);
+	 var r=Math.floor(Math.random()*100);
+     var g=Math.floor(Math.random()*255);
+     var b=Math.floor(Math.random()*100);
+     el.style.backgroundColor="rgb("+r+","+g+","+b+")";
+	 el.style.left=Math.floor(Math.random()*(box.offsetWidth-el.offsetWidth))+"px"
+	 el.innerHTML=zimu;
+	  var  ran=Math.ceil(Math.random()*5);
+     zimujihe[zimu]={top:0,yuansu:el,off:ran};        //zimu做健  div做值
+ }
+
+
+ for( var i=0;i<shuliang;i++){
+ 	createzimu();
+ }
+
+//UI中移除  数据中移除
+var removezimu=function(zi){
+	 el=zimujihe[zi].yuansu;
+	el.parentElement.removeChild(el);
+	delete zimujihe[zi];
+
+
+}
+document.onkeyup=function(e){
+	if (e.keyCode===32) {
+		kaiguan();
+		return;
+	}
+	var key=String.fromCharCode(e.keyCode).toLowerCase();
+
+	if (zimujihe[key]) {
+		removezimu(key);
+		createzimu();
+	}
+}
+/*连续下降*/
+var HH=box.offsetHeight;
+diao=function(){
+	var arr=[];
+	for (var i in zimujihe){
+		var	data=zimujihe[i];
+		var el=data.yuansu;
+		data.top+=data.off;
+		el.style.top=data.top+"px";
+		if (data.top>HH) {
+			arr.push(i);
+		}
+		if (arr.length) {
+			for (var i = 0; i < arr.length; i++) {
+				
+
+				removezimu(arr[i]);
+				
+				createzimu();
+
+
+			}
+		}
+	}
+}
+var timeid=setInterval(diao,20)
+/*开关*/
+var kaiguan=function(){
+	if (timeid) {
+		clearInterval(timeid);
+		timeid=null;
+	}else{
+		timeid=setInterval(diao,20);  
+	}
+}
+
+
+</script>
+</html>

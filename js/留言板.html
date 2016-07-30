@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言板</title>
+</head>
+<body>
+	<div class="write">
+		<textarea name="" id="" cols="30" rows="10" placeholder="请输入" maxlength="12"></textarea>
+		<div class="tishi"></div>
+		<input type="button" value="提交" id="btn"></input>
+	</div>
+	<div class="content">
+		<p>  完成</p>
+	</div>
+	<style type="text/css">
+       body,textarea,input,form,ol,li,ul{
+       	padding: 0;
+       	margin: 0;
+       	list-style: none;
+       }
+       .write{
+       	margin: 20px  auto;
+       	width: 500px;
+       	height:200px;
+       	border: 1px solid black;
+
+       }
+       .content{
+       	width: 500px;
+       	height:auto;
+        margin: 20px auto;
+        border: 1px solid red;
+       }
+       content p{
+       	padding: 5px;
+       	border-bottom: 1px solid red;
+       }
+       textarea{
+       	width: 100%;
+       	height: 100px;
+       	outline: none;
+       	resize: none;
+       	font-size: 20px;
+       }
+       input{
+       	border: none;
+        width: 80px;
+        height: 30px;
+        font-size: 20px;
+        float:right;
+        cursor: pointer;
+       }
+       .tishi{
+       	height: 30px;
+       	line-height: 30px;
+       }
+
+	</style>
+</body>
+<script type="text/javascript">
+	var text=document.querySelector("textarea");
+	var tishi=document.querySelector(".tishi");
+	var btn=document.querySelector("#btn");
+	text.onkeyup=function(){
+
+	}
+	text.onkeyup=btn.onclick=function(){
+		var  ev=e||window.event;
+		if (ev.type=="keyup") {
+			if (ev.shiftKey&&ev.keyCode===13) {
+			var val=text.value;
+			val=val.replace(/^\s+|\s+$/,"");
+			   if (val.length===0) {
+			   	alert("请重新输入")
+			   }else{
+			   	var p=$('<p>');
+			   	p.innerHTML=val;
+			   	beforeChild(con,p)
+			   }
+
+		    }
+		}
+	}
+</script>
+</html>
