@@ -23,21 +23,21 @@
 	</style>
 </body>
 <script>
-	// var els=document.querySelectorAll('li');
-	// for (var i = 0; i < els.length; i++) {
-	// 	els[i].onclick=(function (v){
-	// 	   return function(){
-	// 		   console.log(v);
-	// 	   }
-	//   })(i);               
- //   }
- //   for (var i = 0; i < els.length; i++) {
- //   	els[i].onclick=(function(v){//v为实参
- //   	   return function(){
- //   		console.log(v);
- //          	}
- //       })(i)//i为形参
- //   }
+	var els=document.querySelectorAll('li');
+	for (var i = 0; i < els.length; i++) {
+		els[i].onclick=(function (v){
+		   return function(){
+			   console.log(v);
+		   }
+	  })(i);               
+   }
+   for (var i = 0; i < els.length; i++) {
+   	els[i].onclick=(function(v){//v为实参
+   	   return function(){
+   		console.log(v);
+          	}
+       })(i)//i为形参
+   }
    (function(){
     var  abc=function(el){
     	var els=document.querySelectorAll(el);
