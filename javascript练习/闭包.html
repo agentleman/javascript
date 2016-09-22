@@ -14,8 +14,8 @@
 	</ul>
 	<style>
      li{
-     	width: 100px;
-     	height:30px;
+      	width: 100px;
+      	height:30px;
         background:red;
         margin-bottom: 5px;
         color: #fff;
@@ -24,18 +24,11 @@
 </body>
 <script>
 	var els=document.querySelectorAll('li');
-	for (var i = 0; i < els.length; i++) {
-		els[i].onclick=(function (v){
-		   return function(){
-			   console.log(v);
-		   }
-	  })(i);               
-   }
    for (var i = 0; i < els.length; i++) {
    	els[i].onclick=(function(v){//v为实参
    	   return function(){
    		console.log(v);
-          	}
+         	}
        })(i)//i为形参
    }
    (function(){
@@ -57,7 +50,7 @@
     		return new abc(el);	
     	}   
         window.$=a;
-   })()
+   })();
 
      var cc=$('li') 
 
