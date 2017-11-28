@@ -27,6 +27,7 @@
 	var  one=document.querySelector(".one");
 	console.log(one)
 	 mousewheel(one,function(){
+    one.style.background="grey";
        var widths=this.offsetWidth+10;
        var heights=this.offsetHeight+10;
        
@@ -38,7 +39,8 @@
        }
        one.style.width=widths+"px";
        one.style.height=heights+"px";
-	 },function(){one.style.background="red";
+	 },function(){
+        one.style.background="red";
         var widths=this.offsetWidth+10;
        var heights=this.offsetHeight+10;
        

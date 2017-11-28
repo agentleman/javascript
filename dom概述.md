@@ -1,4 +1,4 @@
-# SOM是什么
+# DOM是什么
 
 Document  Object  Modal(文档对象模型)
 
@@ -78,7 +78,7 @@ Document  Object  Modal(文档对象模型)
  * appendChild()   box.appendChild(el).style.color='red' (可以使用)
  * hasChildNodes() 返回布尔类型 // el.children.length
  * insertBefore()  返回你插入的那个对象
- * removeChile()   返回被移除的对象
+ * removeChiled()   返回被移除的对象
  * replaceChild()
 
  取出节点的文本内容(会过滤掉标签)
@@ -202,7 +202,7 @@ var  var  box=document.querySelector('.box');
  })
 
  回调函数
- 当我们吧函数x作为参数传给函数y
+ 当我们把函数x作为参数传给函数y
  函数y内部有对函数x的调用
  我们把函数x叫回调函数
 
