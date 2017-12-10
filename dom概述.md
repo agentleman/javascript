@@ -24,10 +24,10 @@ Document  Object  Modal(文档对象模型)
 
  * document.querySelector()
  * document.getElementById()
- * 
- * 
- *
- *
+ * document.getElementsByTagName()
+ * document.getElementsByClassName()
+ * document.querySelectorAll()
+ * document.getElementsByName()
 
  这些方法的返回结果是什么？
  前俩个的返回结果是一个代表了页面中某个元素的对象，叫做DOM对象
