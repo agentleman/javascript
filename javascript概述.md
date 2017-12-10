@@ -36,7 +36,7 @@
    > if(){}else if(){}else{}
 
    switch (val){
-    case1:  ；
+    case1:  ;
     *****
     break；
    }
@@ -62,7 +62,7 @@
    var  _v = functtion(){};   function
    var  _v = undefined;       undefined
    var  _v = null;            null
-   var  _v = true;            Boolezn
+   var  _v = true;            Boolean
 
    javascript中类似于'表'的形式来存储数据(对象)
 
@@ -78,7 +78,7 @@
    定义函数的时候发生的什么？
    要把代表函数的那张表构建完全
    1.'调用'这个属性要赋值，函数体内部的字符串。
-   2.要把当前可见范围内的所有变量由近到远的记录大链条中，形成一条作用域链
+   2.要把当前可见范围内的所有变量由近到远的记录在链条中，形成一条作用域链
 
 
 ##  函数体里内容在哪里
@@ -139,4 +139,4 @@ JSON.parse()
 //把字符串转换为对象
 
 2 input.checked=true||false
-4 把数组排序，然后重绘  sore
+4 把数组排序，然后重绘  sore方法。

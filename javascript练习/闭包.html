@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+	<style>
+     li{
+      	width: 100px;
+      	height:30px;
+        background:red;
+        margin-bottom: 5px;
+        color: #fff;
+      }
+	</style>
+</body>
+<script>
+	var els=document.querySelectorAll('li');
+   for (var i = 0; i < els.length; i++) {
+   	els[i].onclick=(function(v){//v为实参
+   	   return function(){
+   		console.log(v);
+         	}
+       })(i)//i为形参
+   }
+   (function(){
+    var  abc=function(el){
+    	var els=document.querySelectorAll(el);
+    	for (var i = 0; i < els.length; i++) {
+    		this[i]=els[i];
+    	};
+    	this.length=els.length;
+    	 return  this;
+       }
+    abc.prototype.addClass=function(a){
+    	for (var i = 0; i < this.length; i++) {
+    		this[i].classList.add(a)
+    	}
+    	return this;
+    }
+    var a=function(el){
+    		return new abc(el);	
+    	}   
+        window.$=a;
+   })();
+
+     var cc=$('li') 
+
+
+
+</script>
+</html>
